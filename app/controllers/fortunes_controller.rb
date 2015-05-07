@@ -10,4 +10,10 @@ class FortunesController < ApplicationController
   def unlucky
     @numbers = [rand(100...1000), rand(100...1000), rand(100...1000), rand(100...1000), rand(100...1000)]
   end
+
+  def number_game
+    @num_1 = params["no_1"].to_i
+    @num_2 = params[:no_2].to_i
+    @number_1 = [rand(@num_1..@num_2)]
+  end
 end
