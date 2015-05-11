@@ -1,15 +1,17 @@
 class ZodiacsController < ApplicationController
-  def destroy_row
+
+def destroy_row
     z=Zodiac.find(params[:the_id])
     z.destroy
   end
 
-  def sign
-    @zodiac=Zodiac.find_by({:sign=>params[:the_sign]})
-  end
-
   def new_form
 
+  end
+
+  def sign
+    @zodiac=Zodiac.find_by({:sign=>params[:the_sign]})
+    render('show.html.erb')
   end
 
   def creature
@@ -29,12 +31,19 @@ class ZodiacsController < ApplicationController
     z.fortune=params[:horoscope]
     z.save
 
-    @sign=params [:symbol]
-    @creature=params [:animal]
-    @fortune=params [:horoscope]
+    @sign = params[:symbol]
+    @creature = params[:animal]
+    @fortune = params[:horoscope]
+    redirect_to('/zodiacs')
+  end
+
+  def destroy_row
+    z=Zodiac.find(params[:the_id])
+    z.destroy
+    redirect_to('/zodiacs')
   end
 
   def index
-
+      @list_of_zodiacs = Zodiac.all
   end
 end

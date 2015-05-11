@@ -1,13 +1,16 @@
 <h1> List of Zodiacs</h1>
-<table>
+<table class="table table-striped table-hover">
 <tr>
 <th>Sign</th>
 <th>Creature</th>
+<th>Actions</th>
 </tr>
 
+<% @list_of_zodiacs.each do |giraffe|%>
 <tr>
-<td>cancer</td>
-<td>crab</td>
+<td><%= giraffe.sign %></td>
+<td><%= giraffe.creature %></td>
+<td><a href="/delete_zodiac/<%= giraffe.id %>">Delete</a></td>
 </tr>
-
+<% end %>
 </table>

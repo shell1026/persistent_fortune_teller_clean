@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   # VARIABLE ROUTES
   # =======================
 
-  # get("/signs/:the_sign",         { :controller => "zodiacs", :action => "sign" })
-  # get("/creatures/:the_creature", { :controller => "zodiacs", :action => "creature" })
-  #get ("zodiacs/:the_id", {:controller=> "zodiacs", :action => "show"))
-  get ("/zodiacs",       { :controller => "zodiacs", :action => "index"})
+  get("/signs/:the_sign",         { :controller => "zodiacs", :action => "sign" })
+  get("/creatures/:the_creature", { :controller => "zodiacs", :action => "creature" })
+  get("zodiacs/:the_id",          { :controller => "zodiacs", :action => "show" })
+  get("/zodiacs",                 { :controller => "zodiacs", :action => "index"})
+  get("/delete_zodiac/:the_id",   { :controller => "zodiacs", :action => "destroy_row" })
 end
